@@ -1,3 +1,3 @@
 # OurGreenPlace_SeniorCapstone
 
-##Creators: Aliyah Smith-Bradley && Alexandra Gardner
+## Creators: Aliyah Smith-Bradley && Alexandra Gardner
