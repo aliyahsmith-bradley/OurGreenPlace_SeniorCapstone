@@ -6,6 +6,14 @@ views = Blueprint("views", __name__)
 def home():
     return render_template("views/home.html")
 
-@views.route("/about")
-def about():
-    return render_template("views/about.html")
+@views.route("/explore")
+def explore():
+    return render_template("views/explore.html")
+
+@views.route("/deforestationInMD")
+def deforestationInMD():
+    return render_template("views/deforestationInMD.html")
+
+@views.route("/contact")
+def contact():
+    return render_template("views/contact.html")
