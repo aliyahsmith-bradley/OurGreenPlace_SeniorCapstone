@@ -13,8 +13,11 @@ parks, gardens, and more.
 Our project is run utilizing Visual Studio. You must download the app and clone this git repository. Python, Flask, and pip also must be correctly installed.   
 
 In the terminal of VS Code, type the following commands to create and activate the virtual environment, and to install Flask: 
+
 $ python -m venv venv
+
 $ .\venv\Scripts\activate
+
 (venv) $ python -m pip install Flask 
 
 If Flask does not work immediately, press cmd+p and type "Select Interpreter". Choose the correct interpreter and continue. 
