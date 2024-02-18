@@ -2,5 +2,10 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-<h1>This is the home page!</h1>
+<h1>Find Green Places Near You!</h1>
+<form action="/explore">
+    <input type="text" name="city" id="city"
+    placeholder="Enter your city" />
+    <button type="submit">Submit</button>
+</form>
 {% endblock %}
