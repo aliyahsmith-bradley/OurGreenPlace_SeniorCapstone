@@ -2,5 +2,17 @@
 {% block title %}Explore{% endblock title %}
 
 {% block content %}
-<h1>This is the explore page!</h1>
+    <h1>Green Spaces Near You</h1>
+
+    <div class="green-spaces">
+        {% for green_space in green_spaces %}
+            <div class="green-space">
+                <h2>{{ green_space.name }}</h2>
+                <p><strong>Location:</strong> {{ green_space.city }}, {{ green_space.state }} </p>
+                <p><strong>Description:</strong> {{ green_space.description }} </p>
+                <p><strong>Directions:</strong> {{ green_space.directions }} </p>
+                <p><strong>Activity Type:</strong> {{green_space.activity_type_name }} </p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
