@@ -2,17 +2,35 @@
 {% block title %}Explore{% endblock title %}
 
 {% block content %}
-    <h1>Green Spaces Near You</h1>
-
-    <div class="green-spaces">
-        {% for green_space in green_spaces %}
-            <div class="green-space">
-                <h2>{{ green_space.name }}</h2>
-                <p><strong>Location:</strong> {{ green_space.city }}, {{ green_space.state }} </p>
-                <p><strong>Description:</strong> {{ green_space.description }} </p>
-                <p><strong>Directions:</strong> {{ green_space.directions }} </p>
-                <p><strong>Activity Type:</strong> {{green_space.activity_type_name }} </p>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12 text-center pt-5 pb-4">
+                <h2>Green Spaces Near You</h2>
             </div>
-        {% endfor %}
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-lg-4"></div> <!-- Pushes cards to the right of page -->
+            <div class="col-lg-8">
+                <div class="green-spaces">
+                    {% for green_space in green_spaces %}
+                        <div class="green-space">
+                            <div class="card custom-card-primary mb-3" style="max-width: 50rem;">
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item list-group-item-custom" style="font-size: 24px;"><strong> {{ green_space.name }} </strong></li>
+                                        <li class="list-group-item list-group-item-custom"><strong>Location:</strong> {{ green_space.city }}, {{ green_space.state }} </li>
+                                        <li class="list-group-item list-group-item-custom"><strong>Description:</strong> {{ green_space.description }} </li>
+                                        <li class="list-group-item list-group-item-custom"><strong>Directions:</strong> {{ green_space.directions }} </li>
+                                        <li class="list-group-item list-group-item-custom"><strong>Activity Type:</strong> {{ green_space.activity_type_name }} </li>
+                                    </ul>
+                                    <p> </p>
+                                    <a href="#" class="leave-a-review">        Leave a Review</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

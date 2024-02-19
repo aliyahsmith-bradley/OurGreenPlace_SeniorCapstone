@@ -1,3 +1,15 @@
+/* Base Web App Styling -- Applies to all */ 
 body {
   background-color: #D4E7C5;
+}
+
+/* Explore Page Styling */ 
+.custom-card-primary {
+  background-color: #FBFADA;
+  color: black;
+}
+
+.list-group-item-custom {
+  background-color: #FBFADA; 
+  color: black; 
 }
