@@ -4,12 +4,29 @@ body {
 }
 
 /* Explore Page Styling */ 
-.custom-card-primary {
-  background-color: #FBFADA;
+.custom-card-explore {
+  background-color: #99BC85;
   color: black;
 }
 
 .list-group-item-custom {
-  background-color: #FBFADA; 
+  background-color: #99BC85; 
   color: black; 
 }
+
+.card-border-explore {
+  border: 3px solid #362706; 
+}
+
+/* Statistics Page Styling 
+.carousel-item {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.d-block.w-75 {
+  max-width: 100%;
+  height: auto;
+}
+*/
