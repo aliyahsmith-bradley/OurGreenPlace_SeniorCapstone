@@ -1,5 +1,6 @@
 from flask import Flask
 from website import views
+from flask_sqlalchemy import SQLAlchemy 
 
 
 def create_app():

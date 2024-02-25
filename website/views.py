@@ -63,3 +63,7 @@ def howToHelp():
 @views.route("/contact")
 def contact():
     return render_template("views/contact.html")
+
+@views.route("/signup")
+def signup():
+    return render_template("views/signup.html")
