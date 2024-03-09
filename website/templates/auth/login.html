@@ -2,7 +2,7 @@
 {% block title %}Loin Page{% endblock title %}
 
 {% block content %}
-<form method="POST">
+<form method="POST" action="{{ url_for('auth.login') }}">
   <br/>
   <h3 align="center">Login</h3>
   <h5 align="center">Don't have an account yet? <a href="/signup">Create an account</a></h5>
@@ -12,6 +12,7 @@
       type="email" 
       class="form-control" 
       id="email" 
+      name="email" 
       placeholder="name@example.com"
     />
     <label for="email">Email address</label>
@@ -21,6 +22,7 @@
       type="password" 
       class="form-control" 
       id="password" 
+      name="password"
       placeholder="1234"
     />
     <label for="password">Password</label>

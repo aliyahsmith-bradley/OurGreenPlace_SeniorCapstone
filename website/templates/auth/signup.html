@@ -2,7 +2,7 @@
 {% block title %}Sign Up Page{% endblock title %}
 
 {% block content %}
-<form method="POST">
+<form method='POST' action="{{ url_for('auth.signup') }}">
   <br/>
   <h3 align="center">Sign Up</h3>
   <h5 align="center">Already have an account? <a href="/login">Login</a></h5>
@@ -13,7 +13,8 @@
         <input 
           type="firstName" 
           class="form-control form-control-sm" 
-          id="firstName" 
+          id="firstName"
+          name="firstName" 
           placeholder="Jane"
         />
         <label for="firstName">First name</label>
@@ -25,6 +26,7 @@
           type="lastName" 
           class="form-control form-control-sm" 
           id="lastName" 
+          name="lastName"
           placeholder="Doe"
         />
         <label for="lastName">Last name</label>
@@ -36,6 +38,7 @@
       type="email" 
       class="form-control" 
       id="email" 
+      name="email"
       placeholder="name@example.com"
     />
     <label for="email">Email address</label>
@@ -47,6 +50,7 @@
         type="username" 
         class="form-control" 
         id="username" 
+        name="username"
         placeholder="janedoe123"
         />
       <label for="username">Username</label>
@@ -58,6 +62,7 @@
       type="password" 
       class="form-control" 
       id="password" 
+      name="password"
       placeholder="1234"
     />
     <label for="password">Password</label>
@@ -67,6 +72,7 @@
       type="passwordConfirmation" 
       class="form-control" 
       id="passwordConfirmation" 
+      name="passwordConfirmation"
       placeholder="1234"
     />
     <label for="passwordConfirmation">Password (Confirm)</label>
