@@ -1,6 +1,80 @@
 {% extends 'base.html' %}
-{% block title %}Featured Content Page{% endblock title %}
+{% block title %}Sign Up Page{% endblock title %}
 
 {% block content %}
-<h1>This is the sign up page!</h1>
+<form method="POST">
+  <br/>
+  <h3 align="center">Sign Up</h3>
+  <h5 align="center">Already have an account? <a href="login.html">Login</a></h5>
+  <br/>
+  <div class="row g-3">
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <input 
+          type="firstName" 
+          class="form-control form-control-sm" 
+          id="firstName" 
+          placeholder="Jane"
+        />
+        <label for="firstName">First name</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <input 
+          type="lastName" 
+          class="form-control form-control-sm" 
+          id="lastName" 
+          placeholder="Doe"
+        />
+        <label for="lastName">Last name</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-floating mb-3">
+    <input 
+      type="email" 
+      class="form-control" 
+      id="email" 
+      placeholder="name@example.com"
+    />
+    <label for="email">Email address</label>
+  </div>
+  <div class="input-group">
+    <span class="input-group-text">@</span>
+    <div class="form-floating">
+      <input 
+        type="username" 
+        class="form-control" 
+        id="username" 
+        placeholder="janedoe123"
+        />
+      <label for="username">Username</label>
+    </div>
+  </div>
+  <br/>
+  <div class="form-floating mb-3">
+    <input 
+      type="password" 
+      class="form-control" 
+      id="password" 
+      placeholder="1234"
+    />
+    <label for="password">Password</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input 
+      type="passwordConfirmation" 
+      class="form-control" 
+      id="passwordConfirmation" 
+      placeholder="1234"
+    />
+    <label for="passwordConfirmation">Password (Confirm)</label>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+        <button type="submit" class="btn btn-primary" style="background-color: #12372A; border-color: #12372A;">Submit</button>
+    </div>
+  </div>
+</form>
 {% endblock %}
