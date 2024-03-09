@@ -67,3 +67,7 @@ def contact():
 @views.route("/signup")
 def signup():
     return render_template("views/signup.html")
+
+@views.route("/login")
+def login():
+    return render_template("views/login.html")
