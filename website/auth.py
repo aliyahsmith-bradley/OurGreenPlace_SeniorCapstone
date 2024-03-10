@@ -1,9 +1,12 @@
-from flask import Blueprint, render_template, request, flash 
+from flask import Blueprint, render_template, request, flash, redirect, url_for
+#from .models import User
+from werkzeug.security import generate_password_hash, check_password_hash
 
 auth = Blueprint('auth', __name__)
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
+    #Testing -- prints login form data
     data = request.form
     print(data)
     return render_template("auth/login.html", boolean=True)
@@ -14,9 +17,11 @@ def logout():
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
+    # Testing -- prints sign up form data 
     data = request.form
     print(data)
 
+    # Retrieves user data from sign up form 
     if request.method == 'POST':
         firstName = request.form.get('firstName')
         lastName = request.form.get('lastName')
@@ -25,6 +30,7 @@ def signup():
         password = request.form.get('password')
         passwordConfirmation = request.form.get('passwordConfirmation')  
  
+        # Validates user input before submission 
         if firstName is None or len(firstName) < 2:
             flash("First name must be greater than 1 character.", category='error') 
         elif lastName is None or len(lastName) < 2:
@@ -38,6 +44,13 @@ def signup():
         elif password != passwordConfirmation:
             flash("Passwords do not match.", category='error')  
         else:
+            # Creates new user and adds account to database 
+            from .models import User, db
+            hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
+            new_user = User(firstName=firstName, lastName=lastName, email=email, username=username, password=hashed_password)
+            db.session.add(new_user)
+            db.session.commit()
             flash("Account created successfully.", category='success')  
+            return redirect(url_for('views.home'))
 
     return render_template("auth/signup.html")
