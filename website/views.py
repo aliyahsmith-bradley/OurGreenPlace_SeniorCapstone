@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request
-from website.searchGreenSpaces import get_green_spaces as search_green_spaces 
+from website.searchGreenSpaces import get_green_spaces as search_green_spaces
+from flask_login import login_required, current_user 
 
 views = Blueprint("views", __name__)
 
