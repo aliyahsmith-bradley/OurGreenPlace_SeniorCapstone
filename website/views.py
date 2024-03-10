@@ -6,7 +6,7 @@ views = Blueprint("views", __name__)
 
 @views.route("/")
 def home():
-    return render_template("views/home.html")
+    return render_template("views/home.html", user=current_user)
 
 @views.route("/explore")
 def show_green_spaces():
@@ -43,24 +43,24 @@ def show_green_spaces():
 
             green_spaces.append(green_space_info)
 
-    return render_template("views/explore.html", green_spaces=green_spaces)
+    return render_template("views/explore.html", green_spaces=green_spaces, user=current_user)
 
 @views.route("/deforestationInMD")
 def deforestationInMD():
-    return render_template("views/deforestationInMD.html")
+    return render_template("views/deforestationInMD.html", user=current_user)
 
 @views.route("/statistics")
 def statistics():
-    return render_template("views/statistics.html")
+    return render_template("views/statistics.html", user=current_user)
 
 @views.route("/featuredContent")
 def featuredContent():
-    return render_template("views/featuredContent.html")
+    return render_template("views/featuredContent.html", user=current_user)
 
 @views.route("/howToHelp")
 def howToHelp():
-    return render_template("views/howToHelp.html")
+    return render_template("views/howToHelp.html", user=current_user)
 
 @views.route("/contact")
 def contact():
-    return render_template("views/contact.html")
+    return render_template("views/contact.html", user=current_user)
