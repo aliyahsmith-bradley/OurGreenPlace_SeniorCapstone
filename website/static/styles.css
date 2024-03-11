@@ -30,3 +30,11 @@ body {
   height: auto;
 }
 */
+
+/* Centers card on screen */
+.center-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
