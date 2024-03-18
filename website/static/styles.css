@@ -1,6 +1,19 @@
 /* Base Web App Styling -- Applies to all */ 
-body {
-  background-color: #D4E7C5;
+body { 
+  background-color: white; 
+  margin: auto;
+}
+
+.box {
+  position: absolute;
+  /*position: fixed;*/
+  right: 0px;
+  left: 0px;
+}
+
+.no-right-margin {
+  position: absolute;
+  right: 0px;
 }
 
 /* Explore Page Styling */ 
@@ -37,4 +50,25 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.dark-green {
+  background-color: #12372A;
+}
+
+
+.container {
+  margin: auto;  
+}
+
+.light-green {
+  color: #D4E7C5; 
+}
+
+.textstyle1 {
+  font-family: Noto-Sans, sans-serif;
+}
+
+.green3 {
+  background-color: #86A789; 
 }

@@ -2,10 +2,122 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-<h1>Find Green Places Near You!</h1>
-<form action="/explore">
-    <input type="text" name="city" id="city"
-    placeholder="Enter your city" />
-    <button type="submit">Submit</button>
-</form>
+
+<section class="box">
+  <!-- Showcase  p-lg-0 pt-lg-5 -->
+  <section class="text-light p-4 p-lg-0 text-sm-start dark-green">
+    <div class="container">
+      <div class="d-sm-flex align-items-center justify-content-between">
+        <div>
+          <h1>Get Back Into <span class="light-green"> Nature </span></h1>
+          <p class="lead my-4 fs-5 textstyle1">
+            Our Green Place is focused on connecting people all over Maryland with the environment around them. 
+            Find the Green Places near you, now. 
+          </p>
+          <form action="/signup" method="post">
+            <button  
+              class="btn btn-primary" 
+              style="background-color: #99BC85; border-color: #99BC85;">
+              Start Your Journey
+            </button>
+          </form>
+        </div>
+        <img
+          class="img-fluid w-50 d-none d-sm-block rounded float-right"
+          src="{{ url_for('static', filename='images/hiking-img.jpeg') }}"
+          alt=""
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="p-5 green3">
+    <div class="container">
+      <div class="d-md-flex justify-content-between align-items-center">
+        <h3 class="mb-3 mb-md-0">Discover Green Places Near You</h3>
+
+        <form action="/explore" class="w-50">
+          <div class="input-group">
+            <input 
+              type="text"
+              class="form-control" 
+              name="city" id="city" 
+              placeholder="Enter your city" 
+            />
+            <button 
+              class="btn btn-primary"
+              style="background-color: #12372A; border-color: #12372A;"
+              type="submit" 
+              id="searchButton">Search
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+   <!-- Boxes -->
+   <section class="p-5">
+    <div class="container">
+      <div class="row text-center g-4">
+        <div class="col-md">
+          <div class="card text-light" style="background-color: #D4E7C5; border-color: #D4E7C5;">
+            <div class="card-body text-center">
+              <div class="h1 mb-3">
+                <i class="bi bi-tree-fill" style="color: black;"></i> <!-- Icon inserted here -->
+              </div>
+              <h3 class="card-title text-dark mb-3">Deforestation</h3>
+              <p class="card-text text-dark">
+                Learn more about deforestation in Maryland and its negative impact on our environment. 
+              </p>
+              <a href="/deforestationInMD" class="btn btn-primary" style="background-color: #12372A; border-color: #12372A;">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="card text-light" style="background-color: #12372A; border-color: #12372A;">
+            <div class="card-body text-center">
+              <div class="h1 mb-3">
+                <i class="bi bi-geo-alt"></i> 
+              </div>
+              <h3 class="card-title text-light mb-3">Green Spaces Map</h3>
+              <p class="card-text text-light">
+                Maryland is full of dozens of parks, trails, gardens, and more. View them all now.  
+              </p>
+              <a href="#" class="btn btn-primary" style="background-color: white; border-color: white; color: #12372A;">Discover</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="card text-light" style="background-color: #D4E7C5; border-color: #D4E7C5;">
+            <div class="card-body text-center">
+              <div class="h1 mb-3">
+                <i class="bi bi-collection-fill" style="color: black;"></i> 
+              </div>
+              <h3 class="card-title text-dark mb-3">Build Our Collection</h3>
+              <p class="card-text text-dark">
+                Don't see the Green Place you're looking for? Add your favorite Green Place to our collection.  
+              </p>
+              <a href="#" class="btn btn-primary" style="background-color: #12372A; border-color: #12372A;">Add Yours</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="p-3 bg-dark text-white text-center position-relative">
+    <div class="container">
+      <p class="lead">Copyright &copy; 2024 Loyola University Maryland</p>
+
+      <a href="#" class="position-absolute bottom-0 end-0 p-3">
+        <i class="bi bi-arrow-up-circle h1"></i>
+      </a>
+    </div>
+  </footer>
+
+</section>
+
 {% endblock %}
