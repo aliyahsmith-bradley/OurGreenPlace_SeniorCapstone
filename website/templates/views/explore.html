@@ -2,40 +2,54 @@
 {% block title %}Explore{% endblock title %}
 
 {% block content %}
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-12 text-center pt-5 pb-4">
-                <h2>Green Spaces Near You</h2>
-            </div>
+<div class="container">
+    <div class="row">
+    <div class="col-md-6">
+        <!-- Map View link -->
+        <a href="/map?city={{ city }}" class="btn btn-primary btn-lg btn-block">Map View</a>
+    </div>
+    <div class="col-md-6">
+        <!-- List View link -->
+        <a href="/explore?city={{ city }}" class="btn btn-secondary btn-lg btn-block">List View</a>
+    </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-12 text-center pt-5 pb-4">
+            <h2>Green Spaces Near {{ city }}, MD</h2>
         </div>
-        <div class="row justify-content-end">
-            <div class="col-lg-4"></div> <!-- Pushes cards to the right of page -->
-            <div class="col-lg-8">
-                <div class="green-spaces">
-                    {% for green_space in green_spaces %}
-                        {% if green_space.name != "None" %} <!-- Currently not working -->
-                            <div class="green-space">
-                                <div class="card custom-card-explore border-dark mb-3" style="max-width: 50rem;">
+    </div>
+    <div class="row justify-content-end">
+        <div class="col-lg-4"></div> <!-- Pushes cards to the right of page -->
+        <div class="col-lg-8">
+            <div class="green-spaces">
+                {% for green_space in green_spaces %}
+                    {% if green_space.name != "None" %} <!-- Currently not working -->
+                        <div class="green-space">
+                            <div class="card custom-card-explore border-dark mb-3" style="max-width: 50rem;">
+                                    <!-- Can insert thumbnails/images here -- API ones are not great, need alternate solution
                                         <img class="card-img-top" src="{{ green_space.thumbnail }}" alt="Green Space Thumbnail">
-                                        <div class="card-body">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item list-group-item-custom" style="font-size: 24px;"><strong> {{ green_space.name }} </strong></li>
-                                            <li class="list-group-item list-group-item-custom"><strong>Location:</strong> {{ green_space.city }}, {{ green_space.state }} </li>
-                                            <li class="list-group-item list-group-item-custom"><strong>Description:</strong> {{ green_space.description }} </li>
-                                            <li class="list-group-item list-group-item-custom"><strong>Directions:</strong> {{ green_space.directions }} </li>
-                                            <li class="list-group-item list-group-item-custom"><strong>Activity Type:</strong> {{ green_space.activity_type_name }} </li>
-                                            <li class="list-group-item list-group-item-custom"><strong>Length:</strong> {{ green_space.length }} </li>
-                                            <li class="list-group-item list-group-item-custom"><strong>Rating:</strong> {{ green_space.rating }}</li>
-                                        </ul>
-                                        <p> </p>
-                                        <a href="#" class="leave-a-review">Leave a Review</a>
-                                    </div>
+                                    -->
+                                    <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item list-group-item-custom" style="font-size: 24px;"><strong> {{ green_space.name }} </strong></li>
+                                        <li class="list-group-item list-group-item-custom"><strong>Location:</strong> {{ green_space.city }}, {{ green_space.state }} </li>
+                                        <li class="list-group-item list-group-item-custom"><strong>Description:</strong> {{ green_space.description }} </li>
+                                        <li class="list-group-item list-group-item-custom"><strong>Directions:</strong> {{ green_space.directions }} </li>
+                                        <li class="list-group-item list-group-item-custom"><strong>Activity Type:</strong> {{ green_space.activity_type_name }} </li>
+                                        <li class="list-group-item list-group-item-custom"><strong>Length:</strong> {{ green_space.length }} </li>
+                                        <li class="list-group-item list-group-item-custom"><strong>Rating:</strong> {{ green_space.rating }}</li>
+                                    </ul>
+                                    <p> </p>
+                                    <a href="#" class="leave-a-review">Leave a Review</a>
                                 </div>
                             </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

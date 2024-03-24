@@ -3,13 +3,17 @@ from pprint import pprint
 from flask import request
 import requests
 
-load_dotenv()
+load_dotenv() 
 
 def request_green_spaces(city="Baltimore"): # Baltimore set as default 
     request_url = "https://trailapi-trailapi.p.rapidapi.com/activity/"
 
-    # Query contains multiple fixed elements (e.g the activity will always be "hiking" currently)
-    querystring = {"limit":"25","q-city_cont":{city},"q-country_cont":"United States"}
+    # Query contains multiple fixed elements 
+    querystring = {
+        "limit":"25",
+        "q-city_cont":{city},
+        "q-state_cont":"Maryland",
+        "q-country_cont":"United States"}
     
     headers = {
 	    "X-RapidAPI-Key": "8a3b9254b6msh07f124103c9bc73p1948dbjsn40b20eb8f6d1",
@@ -32,7 +36,7 @@ def request_green_spaces(city="Baltimore"): # Baltimore set as default
 
     return response.json()
 
-def retrieve_green_spaces(city="Baltimore"):
+def retrieve_green_spaces():
     city = request.args.get("city")
     response = request_green_spaces(city)
 
@@ -40,67 +44,65 @@ def retrieve_green_spaces(city="Baltimore"):
     green_spaces = []  
 
     for place_id, green_space_data in response.items():
-        # Only include green spaces that are in Maryland 
-        if green_space_data.get("state") == "Maryland":
+
+        # Attributes
+        activity_type_name = None
+        length = None 
+        rating = None
+        thumbnail = None 
+        lat = green_space_data.get("lat", None)
+        lon = green_space_data.get("lon", None)
+
+        for activity_type in green_space_data.get("activities", {}):
+            activity_data = green_space_data["activities"][activity_type]
+
+            activity_type_name = activity_data.get("activity_type_name")
+            if activity_type_name is not None:
+                activity_type_name = activity_type_name.title()
+            else:
+                activity_type_name = "N/A"
             
-            activity_type_name = None
-            length = None 
-            rating = None
-            thumbnail = None 
+            # Extract rating if present, "N/A" if not 
+            rating = activity_data.get("rating")
+            if rating is not None and rating != "0.00":
+                rating = str(rating).title() + "/5.00"
+            else:
+                rating = "N/A"
+
+        activities = green_space_data.get("activities", {})
+
+        for activity_type, activity_data in activities.items():
+            attribs = activity_data.get("attribs", {})
             
-            lat = green_space_data.get("lat", None)
-            lon = green_space_data.get("lon", None)
-
-            for activity_type in green_space_data.get("activities", {}):
-                activity_data = green_space_data["activities"][activity_type]
-
-                activity_type_name = activity_data.get("activity_type_name")
-                if activity_type_name is not None:
-                    activity_type_name = activity_type_name.title()
+            if "length" in attribs:
+                length = attribs["length"]
+                if length is not None and length != "0":
+                    length = str(length).title() + " Miles"
                 else:
-                    activity_type_name = "N/A"
-                
-                # Extract rating if present
-                rating = activity_data.get("rating")
-                if rating is not None and rating != "0.00":
-                    rating = str(rating).title() + "/5.00"
-                else:
-                    rating = "N/A"
+                    length = "N/A"
 
-            activities = green_space_data.get("activities", {})
+            thumbnail = activity_data.get("thumbnail")
+            if thumbnail:
+                break  
+            else:
+                thumbnail = "/static/images/hiking_trail_image.png"
 
-            for activity_type, activity_data in activities.items():
-                attribs = activity_data.get("attribs", {})
-                
-                if "length" in attribs:
-                    length = attribs["length"]
-                    if length is not None and length != "0":
-                        length = str(length).title() + " Miles"
-                    else:
-                        length = "N/A"
+        green_space_info = {
+            "green_space_id": place_id, 
+            "name": green_space_data.get("name", " "),
+            "city": green_space_data.get("city", " "), 
+            "state": green_space_data.get("state", " "),
+            "country": green_space_data.get("country", " "),
+            "description": green_space_data.get("description", " "),
+            "directions": green_space_data.get("directions", " "),
+            "lat": lat,
+            "lon": lon,
+            "activity_type_name": activity_type_name,
+            "length":length, 
+            "rating":rating,
+            "thumbnail":thumbnail
+        }
 
-                thumbnail = activity_data.get("thumbnail")
-                if thumbnail:
-                    break  
-                else:
-                    thumbnail = "/static/images/hiking_trail_image.png"
+        green_spaces.append(green_space_info)
 
-            green_space_info = {
-                "green_space_id": place_id, 
-                "name": green_space_data.get("name", " "),
-                "city": green_space_data.get("city", " "), 
-                "state": green_space_data.get("state", " "),
-                "country": green_space_data.get("country", " "),
-                "description": green_space_data.get("description", " "),
-                "directions": green_space_data.get("directions", " "),
-                "lat": lat,
-                "lon": lon,
-                "activity_type_name": activity_type_name,
-                "length":length, 
-                "rating":rating,
-                "thumbnail":thumbnail
-            }
-
-            green_spaces.append(green_space_info)
-
-    return green_spaces
+    return green_spaces, city

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, redirect, session
 from website.searchGreenSpaces import retrieve_green_spaces
 from flask_login import current_user 
 import folium
@@ -11,15 +11,15 @@ def home():
 
 @views.route("/explore")
 def explore():
-    green_spaces = retrieve_green_spaces()
-    return render_template("views/explore.html", green_spaces=green_spaces, user=current_user)
+    green_spaces, city = retrieve_green_spaces()
+    return render_template("views/explore.html", green_spaces=green_spaces, city=city, user=current_user)
 
 @views.route("/map")
 def map():
-    green_spaces = retrieve_green_spaces()
+    green_spaces, city = retrieve_green_spaces()
 
     # Coordinates are center of Maryland 
-    green_space_map = folium.Map(location=[39.0458, -76.6413], zoom_start=9)
+    green_space_map = folium.Map(location=[39.0458, -76.6413], zoom_start=10)
 
     # Adds marker on map for each green space in Maryland -- need specific city to display 
     for green_space in green_spaces:
@@ -30,7 +30,7 @@ def map():
 
     green_space_map = green_space_map._repr_html_()
 
-    return render_template("views/map.html", green_space_map=green_space_map, green_spaces=green_spaces, user=current_user)
+    return render_template("views/map.html", green_space_map=green_space_map, green_spaces=green_spaces, city=city, user=current_user)
 
 @views.route("/deforestationInMD")
 def deforestationInMD():
