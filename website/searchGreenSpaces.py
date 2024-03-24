@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 from pprint import pprint
 from flask import request
-import requests
+import requests, folium
 
 load_dotenv() 
 
@@ -106,3 +106,25 @@ def retrieve_green_spaces():
         green_spaces.append(green_space_info)
 
     return green_spaces, city
+
+def create_green_space_map(green_spaces):
+    # Coordinates are center of Maryland 
+    green_space_map = folium.Map(location=[39.0458, -76.6413], zoom_start=10)
+
+    # Adds marker on map for each green space in Maryland 
+    for green_space in green_spaces: 
+        coords = (green_space["lat"], green_space["lon"]) 
+        popup=(
+            "<div style='width: 200px;'>" + 
+            "<h3>" + green_space["name"] + "</h3>"
+            "<h5>Type: " + green_space["activity_type_name"] + "</h5>"
+            "<h5>Length: " + green_space["length"] + "</h5>"
+            "<h5>Rating: " + green_space["rating"] + "</h5>" 
+            + "<\div>"
+        )
+        folium.Marker(coords, popup).add_to(green_space_map)
+
+    # Converts map to HTML 
+    green_space_map = green_space_map._repr_html_()
+
+    return green_space_map
