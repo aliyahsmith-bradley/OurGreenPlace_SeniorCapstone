@@ -87,24 +87,30 @@ def retrieve_green_spaces():
             else:
                 thumbnail = "/static/images/hiking_trail_image.png"
 
-        green_space_info = {
-            "green_space_id": place_id, 
-            "name": green_space_data.get("name", " "),
-            "city": green_space_data.get("city", " "), 
-            "state": green_space_data.get("state", " "),
-            "country": green_space_data.get("country", " "),
-            "description": green_space_data.get("description", " "),
-            "directions": green_space_data.get("directions", " "),
-            "lat": lat,
-            "lon": lon,
-            "activity_type_name": activity_type_name,
-            "length":length, 
-            "rating":rating,
-            "thumbnail":thumbnail
-        }
+        # Fixes bug where there are "None" types in API data 
+        # However, now there is a duplicate card being created at the end of the list 
+        name = green_space_data.get("name")
+        if name is not None:
+            green_space_info = {
+                "green_space_id": place_id, 
+                "name": name,
+                "city": green_space_data.get("city", " "), 
+                "state": green_space_data.get("state", " "),
+                "country": green_space_data.get("country", " "),
+                "description": green_space_data.get("description", " "),
+                "directions": green_space_data.get("directions", " "),
+                "lat": lat,
+                "lon": lon,
+                "activity_type_name": activity_type_name,
+                "length":length, 
+                "rating":rating,
+                "thumbnail":thumbnail
+            }
 
         green_spaces.append(green_space_info)
-
+    
+    # Testing 
+    print(green_spaces)
     return green_spaces, city
 
 def create_green_space_map(green_spaces):
