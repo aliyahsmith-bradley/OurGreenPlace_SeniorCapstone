@@ -2,5 +2,109 @@
 {% block title %}How To Help{% endblock title %}
 
 {% block content %}
-<h1>This is the How To Help page!</h1>
+  <h1 style="text-align: center; padding: 20px;">How can you combat deforestation?</h1>
+
+  <!-- Bootstrap Carousel -->
+  <div id="carouselExample" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <!-- First Slide -->
+      <div class="carousel-item active">
+        <div class="card-deck" style="display: flex; flex-wrap: wrap; gap: 20px;">
+          <!-- First Card -->
+          <div class="card" style="flex: 1;">
+            <img class="card-img-top" src="{{ url_for('static', filename='images/Planting Tree.png') }}" alt="Planting Trees">
+            <div class="card-body">
+              <h5 class="card-title">Planting Trees</h5>
+              <p class="card-text">Planting trees helps combat deforestation by sequestering carbon, supporting biodiversity, conserving soil, regulating water, improving air quality, creating economic opportunities, and providing cultural and aesthetic value. It is a multifaceted approach that addresses environmental, social, and economic challenges associated with deforestation.</p>
+            </div>
+          </div>
+          <!-- Second Card -->
+          <div class="card" style="flex: 1;">
+            <img class="card-img-top" src="{{ url_for('static', filename='images/Wood.png') }}" alt="Buying certified wood products">
+            <div class="card-body">
+              <h5 class="card-title">Buying Certified Wood Products</h5>
+              <p class="card-text">Buying certified wood products helps combat deforestation by promoting sustainable forestry practices. Certification programs like the Forest Stewardship Council (FSC) ensure that wood products come from responsibly managed forests that prioritize conservation, biodiversity, and community engagement. By choosing certified wood, consumers support forest management that minimizes environmental impact, encourages reforestation, protects wildlife habitats, and respects the rights of local communities. This demand for certified wood incentivizes sustainable forest management practices, ultimately contributing to the preservation of forests and the mitigation of deforestation's negative effects on the environment.</p>
+            </div>
+          </div>
+          <!-- Third Card -->
+          <div class="card" style="flex: 1;">
+            <img class="card-img-top" src="{{ url_for('static', filename='images/Recycle.png') }}" alt="Recycle">
+            <div class="card-body">
+              <h5 class="card-title">Recycle and Buy Recycled Products</h5>
+              <p class="card-text">Recycling and buying recycled products help combat deforestation by reducing the demand for new raw materials, such as wood and paper, derived from forests. By recycling materials like paper, cardboard, and wood products, we lessen the need to harvest trees for these purposes. Additionally, buying recycled products encourages the market for recycled materials, creating a cycle of sustainability that reduces pressure on natural forests, preserves biodiversity, and mitigates environmental degradation associated with deforestation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Slide -->
+      <div class="carousel-item">
+        <div class="card-deck" style="display: flex; flex-wrap: wrap; gap: 20px;">
+         
+          
+        
+          <div class="card" style="flex: 1;">
+            <img class="card-img-top" src="{{ url_for('static', filename='images/MarylandDNR.png') }}" alt="Contacting the Department of Natural Resources">
+            <div class="card-body">
+              <h5 class="card-title">Contacting the Department of Natural Resources</h5>
+              <p class="card-text"> Contacting the Department of Natural Resources can help combat deforestation by advocating for stronger policies, accessing valuable information and expertise, collaborating on conservation projects, and reporting illegal activities that contribute to forest destruction. This engagement supports efforts to protect forests, promote sustainable land management practices, and address environmental challenges associated with deforestation.</p>
+              <a href="https://dnr.maryland.gov/Pages/mailroom.aspx" class="btn btn-primary d-block mx-auto" style="background-color: rgb(100, 175, 108);">Visit Maryland DNR</a>
+            </div>
+          </div>
+          <div class="card" style="flex: 1;">
+            <img class="card-img-top" src="{{ url_for('static', filename='images/Sustainable Food.png') }}" alt="Eating Sustainable Food">
+            <div class="card-body">
+              <h5 class="card-title">Eating Sustainable Food</h5>
+              <p class="card-text">
+                Eating sustainable food helps combat deforestation because it reduces the demand for products linked to deforestation, such as cattle ranching and soy production. Sustainable agriculture practices prioritize forest conservation, biodiversity protection, and minimal land clearing, leading to less pressure on forests and their ecosystems. By choosing sustainably sourced foods, individuals contribute to preserving natural habitats, mitigating deforestation's harmful impacts on climate, wildlife, and indigenous communities, and promoting environmentally responsible food production methods.</p>
+            </div>
+          </div>
+          <div class="card" style="flex: 1;">
+            <img class="card-img-top" src="{{ url_for('static', filename='images/representive.jpg') }}" alt="Contacting your Representative">
+            <div class="card-body">
+              <h5 class="card-title">Contacting your Representative</h5>
+              <p class="card-text"> 
+                Contacting your representative can combat deforestation by advocating for stronger environmental policies, funding conservation efforts, supporting sustainable land management practices, and promoting awareness about the importance of forest protection. This engagement encourages legislative action, enhances enforcement of forest conservation laws, and fosters collaboration between government agencies, conservation organizations, and local communities to address deforestation and its environmental impacts effectively.</p>
+              <a href="https://www.wilderness.org/get-involved/join-our-movement/contact-your-congress-members#" class="btn btn-primary d-block mx-auto" style="background-color: rgb(100, 175, 108);">Contact your Representative</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Controls -->
+    <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev" >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next" >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <!-- Custom CSS for Carousel Arrows -->
+  <style>
+    .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: #267531; 
+  }
+
+  /* Position carousel control arrows */
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+
+  .carousel-control-prev {
+    left: 1px; 
+  }
+
+  .carousel-control-next {
+    right: 1px; 
+  }
+  </style>
 {% endblock %}
