@@ -2,5 +2,95 @@
 {% block title %}Featured Content Page{% endblock title %}
 
 {% block content %}
-<h1>This is the featured content page!</h1>
+<h1 style="text-align: center; padding: 20px;">David Gordon's Favorite Spots</h1>
+
+<div class="card mb-3">
+  <img class="card-img-top" src="{{ url_for('static', filename='images/Stony Run.jpg') }}" alt="Stony Run Trail">
+  <div class="card-body">
+    <h5 class="card-title">Stony Run Trail</h5>
+    <p class="card-text">Stony Run Trail is a scenic hiking and biking trail located in Baltimore, Maryland. It runs alongside Stony Run, a picturesque stream that meanders through the city and surrounding green spaces. The trail offers a peaceful escape from urban life, with lush vegetation, wildlife sightings, and charming footbridges crossing over the stream.
+
+        As part of Baltimore's network of multi-use trails, Stony Run Trail provides opportunities for outdoor recreation, exercise, and nature appreciation. It's a popular spot for walking, jogging, dog-walking, and cycling, attracting residents and visitors alike who seek a serene environment within the city limits.
+        
+        Stony Run Trail is known for its beauty in different seasons, including vibrant foliage in the fall and blossoming flora in the spring. It's also a community gathering place, where people come together to enjoy the outdoors, socialize, and participate in events organized along the trail.
+        
+        Overall, Stony Run Trail offers a convenient and enjoyable way to experience nature, stay active, and connect with the local community in Baltimore.</p>
+    <a href="https://www.youtube.com/watch?v=lL-rhy-SVTk" class="btn btn-primary d-block mx-auto" style="background-color: rgb(100, 175, 108);"> Drone Footage Stony Run Trail</a>
+  </div>
+</div>
+<div class="card mb-3">
+    <img class="card-img-top" src="{{ url_for('static', filename='images/Loch Raven.jpeg') }}" alt="Loch Raven Reservoir">
+    <div class="card-body">
+      <h5 class="card-title">Loch Raven Reservoir</h5>
+      <p class="card-text">Loch Raven Reservoir in Baltimore County, Maryland, is a vital water source for the region and offers a range of recreational activities such as fishing, boating, hiking, and birdwatching. Its scenic trails, diverse wildlife, and tranquil waters make it a popular spot for outdoor enthusiasts and nature lovers seeking a peaceful retreat in a natural setting.</p>
+      <a href="https://www.youtube.com/watch?v=KV3SYdpbUNw&t=181s" class="btn btn-primary d-block mx-auto" style="background-color: rgb(100, 175, 108);"> Drone Footage Loch Raven Reservoir</a>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <img class="card-img-top" src="{{ url_for('static', filename='images/Rocks State Park.jpg') }}" alt="Rocks State Park">
+    <div class="card-body">
+      <h5 class="card-title">Rocks State Park</h5>
+      <p class="card-text">
+        Rocks State Park is a picturesque natural area located in Harford County, Maryland, USA. The park is known for its stunning rock formations, scenic trails, and outdoor recreational opportunities. One of the park's highlights is the King and Queen Seat, a notable rock outcrop that offers panoramic views of the surrounding landscape.
+        
+        Visitors to Rocks State Park can explore a variety of hiking trails that wind through woodlands, meadows, and along streams. The park is a popular destination for hiking, picnicking, birdwatching, and nature photography. The rugged terrain and unique geological features make it a favorite spot for outdoor enthusiasts and families looking to enjoy the beauty of nature.
+        
+        In addition to its natural attractions, Rocks State Park also has picnic areas, playgrounds, and facilities for group gatherings and events. The park provides opportunities for both relaxation and outdoor adventure, making it a beloved destination for locals and visitors alike in Maryland's scenic countryside.</p>
+      <a href=" https://www.youtube.com/watch?v=_ihdeVgwYtQ" class="btn btn-primary d-block mx-auto" style="background-color: rgb(100, 175, 108);"> Drone Footage Rocks State Park</a>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <img class="card-img-top" src="{{ url_for('static', filename='images/Annapolis Rocks Maryland.jpg') }}" alt="Annapolis Rocks Maryland">
+    <div class="card-body">
+      <h5 class="card-title">Annapolis Rocks Maryland</h5>
+      <p class="card-text">Annapolis Rocks is a renowned natural landmark located within the Green Ridge State Forest in Maryland, USA. It is a popular destination for hikers, outdoor enthusiasts, and nature lovers. Annapolis Rocks offers stunning panoramic views of the surrounding forested hills, valleys, and the Cumberland Valley in the distance.
+
+        The area is characterized by large rock formations, including massive boulders and rock outcroppings, which provide excellent vantage points for taking in the scenic beauty of the Appalachian Mountains and the lush forests of western Maryland. Hiking trails, such as the famous Appalachian Trail, lead visitors to Annapolis Rocks, making it a favored spot for day hikes, backpacking trips, and photography outings.
+        
+        Visitors to Annapolis Rocks can enjoy activities like picnicking, rock climbing (where permitted), birdwatching, and simply relaxing in the serene natural setting. It's a great place to unwind, connect with nature, and appreciate the beauty of Maryland's outdoor landscapes.</p>
+      <a href="https://www.youtube.com/watch?v=RyQw7r0wJOY" class="btn btn-primary d-block mx-auto" style="background-color: rgb(100, 175, 108);"> Drone Footage Annapolis Rocks Maryland</a>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <img class="card-img-top" src="{{ url_for('static', filename='images/Sandy Point.jpg') }}" alt="Sandy Point Beach and Chesapeake Bay Bridge, Annapolis MD">
+    <div class="card-body">
+      <h5 class="card-title">Sandy Point</h5>
+      <p class="card-text">
+        Sandy Point Beach is a popular recreational area located near Annapolis, Maryland, along the western shore of the Chesapeake Bay. It offers stunning views of the Chesapeake Bay Bridge and is known for its sandy beaches, picnic areas, fishing opportunities, and water-based activities like swimming, boating, and windsurfing. The beach is managed by the Maryland Department of Natural Resources and is a favorite spot for locals and tourists alike to enjoy outdoor activities and relax by the water.</p>
+      <a href="https://www.youtube.com/watch?v=F42mRxh_E0M" class="btn btn-primary d-block mx-auto" style="background-color: rgb(100, 175, 108);"> Drone Footage Sandy Point</a>
+    </div>
+  </div>
+
+ 
+
+  <style>
+    .card {
+        padding-top: 20px;
+        max-width: 800px; /* Set a maximum width for the card */
+        margin: auto; /* Center the card horizontally */
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    
+    .card-img-top {
+      width: 300px; /* Fixed width for the image */
+      height: 200px; /* Fixed height for the image */
+      object-fit: cover; /* Ensures the image covers the entire space */
+    }
+    
+    .card-body {
+      text-align: center;
+    }
+    
+    .card-text {
+      margin-bottom: 1rem;
+    }
+    
+    .btn {
+      width: fit-content; /* Makes the button width fit the content */
+      font-size: 14px;
+    }
+    </style>
+    
 {% endblock %}
