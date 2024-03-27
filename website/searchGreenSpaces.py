@@ -110,7 +110,8 @@ def retrieve_green_spaces():
         green_spaces.append(green_space_info)
     
     # Testing 
-    print(green_spaces)
+    # print(green_spaces)
+        
     return green_spaces, city
 
 def create_green_space_map(green_spaces):
