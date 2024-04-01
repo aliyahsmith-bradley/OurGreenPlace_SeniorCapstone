@@ -8,12 +8,15 @@ from flask_login import LoginManager
 db = SQLAlchemy()
 DB_NAME = "user_database.db"
 
-def create_app():
+def create_app(database_uri=f"sqlite:///{DB_NAME}"):
     app = Flask(__name__)
     app.config["SECRET_KEY"] = "ourgreenspace2024"
 
     # Configure user database 
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    # app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
+
+
     db.init_app(app)
 
     app.register_blueprint(views.views)

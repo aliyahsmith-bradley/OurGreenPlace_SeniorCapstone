@@ -1,3 +1,4 @@
+import os
 from dotenv import load_dotenv
 from pprint import pprint
 from flask import request
@@ -15,8 +16,10 @@ def request_green_spaces(city="Baltimore"): # Baltimore set as default
         "q-state_cont":"Maryland",
         "q-country_cont":"United States"}
     
+    key = os.getenv("API_KEY")
+    
     headers = {
-	    "X-RapidAPI-Key": "8a3b9254b6msh07f124103c9bc73p1948dbjsn40b20eb8f6d1",
+	    "X-RapidAPI-Key": key,
 	    "X-RapidAPI-Host": "trailapi-trailapi.p.rapidapi.com"
     }
 
