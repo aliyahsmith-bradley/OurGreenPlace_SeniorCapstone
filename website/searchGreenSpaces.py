@@ -138,3 +138,50 @@ def create_green_space_map(green_spaces):
     green_space_map = green_space_map._repr_html_()
 
     return green_space_map
+
+def check_city():
+    city = request.args.get("city")
+
+    cities_in_MD = [ 
+        "baltimore", 
+        "annapolis", 
+        "columbia",
+        "ocean city"
+        "frederick"
+        "silver spring"
+        "rockville"
+        "bethesda"
+        "hagerstown"
+        "college park"
+        "gaithersburg"
+        "bel air"
+        "germantown"
+        "easton" 
+        "towson"
+        "elkton"
+        "potomac"
+        "hyattsville"
+        "glen burnie"
+        "ellicott city"
+        "maryland city"
+        "capitol heights"
+        "owings mills"
+        "cumberland"
+        "greenbelt"
+        "laurel"
+        "mount airy"
+        "chevy chase"
+        "preston"
+        "salisbury"
+        "sykesville"
+        "chesapeake beach"
+    ]
+
+    # make sure city is case-insensitive 
+    newCity = city.strip().lower()
+
+    if newCity in cities_in_MD:
+        return True 
+    else:
+        print(newCity + " is not in list.")
+        return False 

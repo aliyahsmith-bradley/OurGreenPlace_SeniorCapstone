@@ -18,13 +18,13 @@ body {
 
 /* Explore Page Styling */ 
 .custom-card-explore {
-  background-color: #99BC85;
-  color: black;
+  background-color: white;
+  color: #12372A;
 }
 
 .list-group-item-custom {
-  background-color: #99BC85; 
-  color: black; 
+  background-color: white;
+  color: #12372A;
 }
 
 .card-border-explore {

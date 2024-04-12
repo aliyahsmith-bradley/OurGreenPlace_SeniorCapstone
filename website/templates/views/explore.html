@@ -14,7 +14,7 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-12 text-center pb-4">
-            <h2>Green Spaces in {{ city }}, MD</h2>
+            <h2>Green Spaces in <span class="light-green"> {{ city }}, MD </span></h2>
             <n3>Now showing all Green Spaces located in {{ city }}, MD.</n3>
         </div>
       </div>
@@ -25,11 +25,10 @@
 
     <div class="container">
         <div class="row justify-content-end">
-            <div class="col-lg-4"></div> <!-- Pushes cards to the right of page -->
-            <div class="col-lg-8">
+            <!-- <div class="col-lg-4"></div> Pushes cards to the right of page -->
+            <div class="col-lg-8 mx-auto">
                 <div class="green-spaces">
                     {% for green_space in green_spaces %}
-                        {% if green_space.name != "None" %} <!-- Currently not working -->
                             <div class="green-space">
                                 <div class="card custom-card-explore border-dark mb-3" style="max-width: 50rem;">
                                         <!-- Can insert thumbnails/images here -- API ones are not great, need alternate solution
@@ -50,7 +49,6 @@
                                     </div>
                                 </div>
                             </div>
-                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
