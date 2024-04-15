@@ -1,4 +1,4 @@
-from website.models import User
+from website.userModels import User
 
 # Test routes within website 
 def test_home(client):

@@ -45,3 +45,7 @@ def howToHelp():
 @views.route("/contact")
 def contact():
     return render_template("views/contact.html", user=current_user)
+
+@views.route("/addToDatabase")
+def addToDatabase():
+    return render_template("views/addToDatabase.html", user=current_user)

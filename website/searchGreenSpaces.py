@@ -99,15 +99,15 @@ def retrieve_green_spaces():
                 "name": name,
                 "city": green_space_data.get("city", " "), 
                 "state": green_space_data.get("state", " "),
-                "country": green_space_data.get("country", " "),
+                # "country": green_space_data.get("country", " "),
                 "description": green_space_data.get("description", " "),
                 "directions": green_space_data.get("directions", " "),
                 "lat": lat,
                 "lon": lon,
-                "activity_type_name": activity_type_name,
+                "activity_type_name": activity_type_name, # Type of activity (i.e. hiking, mountain biking, etc.)
                 "length":length, 
-                "rating":rating,
-                "thumbnail":thumbnail
+                "rating":rating
+                #"thumbnail":thumbnail
             }
 
         green_spaces.append(green_space_info)

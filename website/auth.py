@@ -6,7 +6,7 @@ auth = Blueprint('auth', __name__)
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
-    from .models import User
+    from .userModels import User
 
     if request.method == 'POST':
         email = request.form.get('email')
@@ -33,7 +33,7 @@ def logout():
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
-    from .models import User, db
+    from .userModels import User, db
     
     # Retrieves user data from sign up form 
     if request.method == 'POST':
