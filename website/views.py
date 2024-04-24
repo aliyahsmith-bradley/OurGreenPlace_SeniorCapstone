@@ -26,9 +26,7 @@ def map():
     green_space_map = create_green_space_map(green_spaces)
     return render_template("views/map.html", green_space_map=green_space_map, green_spaces=green_spaces, city=city, user=current_user)
 
-@views.route("/deforestationInMD")
-def deforestationInMD():
-    return render_template("views/deforestationInMD.html", user=current_user)
+
 
 @views.route("/statistics")
 def statistics():
