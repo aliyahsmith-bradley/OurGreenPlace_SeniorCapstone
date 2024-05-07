@@ -12,7 +12,7 @@ parks, gardens, and more.
 ## Installation Instructions
 Our project is run utilizing Visual Studio. You must download the app and clone this git repository. Python and Flask must also be correctly installed.   
 
-In the terminal of VS Code, type the following commands to create and activate the virtual environment, and install Flask: 
+In the terminal of VS Code (Link: https://code.visualstudio.com/), type the following commands to create and activate the virtual environment, and install Flask: 
 
   $ python -m venv venv
 
@@ -29,7 +29,9 @@ The following software must be installed to run the program. For each installmen
 - folium
 - python-dotenv
 - requests
-- Werkzeug 
+- Werkzeug
+
+OurGreenPlace relies on an API, called TrailAPI (Link: https://rapidapi.com/trailapi/api/trailapi), to run successfully. To utilize this API, you must create an account on RapidAPI.com and input your personal information. Once you have created your account, you will need to put the specific API key that is attached to your account in a .gitignore file within VSCode. The key must be held in a variable called 'API_KEY'. Afterward, OurGreenPlace should run as expected.   
 
 ## How to Run
 The web application can only be run by navigating to the file main.py under the main directory and clicking the play button in the top right corner of the screen. You may access the web application by cmd+clicking on the link in the terminal (most likely: http://127.0.0.1:5000). You should be automatically directed to the web application in your browser.    
