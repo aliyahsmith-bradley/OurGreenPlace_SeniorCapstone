@@ -11,13 +11,15 @@ def home():
 @views.route("/explore")
 @login_required  
 def explore():
-    if check_city():
-        green_spaces, city = retrieve_green_spaces()
-        return render_template("views/explore.html", green_spaces=green_spaces, city=city, user=current_user)
-    else:
-        flash("Please input a city in Maryland.", category='error')
+    # if check_city():
+        # green_spaces, city = retrieve_green_spaces()
+        # return render_template("views/explore.html", green_spaces=green_spaces, city=city, user=current_user)
+    #else:
+        #flash("Please input a city in Maryland.", category='error')
         
-    return redirect(url_for('views.home'))
+    #return redirect(url_for('views.home'))
+    green_spaces, city = retrieve_green_spaces()
+    return render_template("views/explore.html", green_spaces=green_spaces, city=city, user=current_user)
 
 @views.route("/map")
 @login_required
